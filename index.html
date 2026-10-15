@@ -317,10 +317,10 @@ details.more .body{margin-top:12px;display:grid;gap:12px}
 .club .art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .club:nth-child(1){--cc:var(--pink-l)}.club:nth-child(2){--cc:var(--orange-l)}.club:nth-child(3){--cc:var(--yellow-l)}
 .club h3{font-size:28px;margin-top:24px}
-.club p{margin-top:8px}
+.club p{margin-top:8px;flex:1 0 auto}
 .club .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .club .meta span{font-weight:700;font-size:12px;letter-spacing:.04em;text-transform:uppercase;background:var(--cc);color:var(--ink);border-radius:999px;padding:4px 12px}
-.club .who{margin-top:auto;padding-top:20px;border-top:2px dashed var(--line);font-size:16px;color:var(--ink)}
+.club .who{margin-top:28px;padding-top:20px;border-top:2px dashed var(--line);font-size:16px;color:var(--ink)}
 .club .who b{display:block;font-family:'Baloo 2',sans-serif;font-size:20px}
 .club .photo-badge{position:absolute;left:16px;bottom:16px;background:var(--paper);border:2px solid var(--ink);border-radius:999px;padding:4px 12px;font-weight:800;font-size:12px;color:var(--ink);z-index:1}
 .club .belt{transform-box:fill-box;transform-origin:50% 20%}
@@ -406,7 +406,7 @@ dialog[open]{animation:dlg .35s cubic-bezier(.3,1.4,.5,1)}
 .road{height:72px;background:#55507A;margin:0 -32px;position:relative}
 .road::after{content:'';position:absolute;left:0;right:0;top:34px;height:4px;background:repeating-linear-gradient(90deg,#fff 0 32px,transparent 32px 64px)}
 .grass{height:24px;margin:0 -32px;background:var(--green)}
-.hinfo{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center;margin-top:40px}
+.hinfo{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:stretch;margin-top:40px}
 .hcard{background:var(--paper);border:2px solid var(--ink);border-radius:24px;padding:28px;box-shadow:0 4px 0 var(--ink)}
 .hcard small{font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--pink-d)}
 .hcard h3{font-size:28px;margin-top:4px}
@@ -414,8 +414,7 @@ dialog[open]{animation:dlg .35s cubic-bezier(.3,1.4,.5,1)}
 .hcard .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
 .hcard .btn{font-size:16px;padding:12px 20px}
 .hphotos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.hphotos img{border-radius:24px;aspect-ratio:4/3;object-fit:cover;border:2px solid var(--ink)}
-.hphotos img:nth-child(2){transform:translateY(24px)}
+.hphotos img{border-radius:24px;width:100%;height:100%;min-height:200px;object-fit:cover;border:2px solid var(--ink)}
 
 /* blog */
 .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -430,11 +429,13 @@ dialog[open]{animation:dlg .35s cubic-bezier(.3,1.4,.5,1)}
 .post p{margin-top:8px}
 .post .btn{margin-top:auto;align-self:flex-start;font-size:16px;padding:12px 20px}
 .post .by{margin:20px 0;font-size:16px;font-weight:700;color:var(--ink)}
-.article{background:var(--cream) var(--paper-tex);border-radius:32px;padding:48px;max-width:760px;max-height:88vh;overflow:auto;position:relative;color:var(--ink-2)}
+.article{background:var(--cream) var(--paper-tex);border-radius:32px;padding:24px 8px;max-width:760px;position:relative;overflow:hidden;color:var(--ink-2)}
+.article-in{max-height:calc(92vh - 48px);overflow-y:auto;overscroll-behavior:contain;padding:16px 32px 16px 40px;scrollbar-width:thin;scrollbar-color:var(--pink) transparent;-webkit-mask:linear-gradient(transparent,#000 16px,#000 calc(100% - 16px),transparent);mask:linear-gradient(transparent,#000 16px,#000 calc(100% - 16px),transparent)}
 .article-wrap{position:relative}
 .article h2{font-size:clamp(28px,4vw,40px)}
-.article h3{font-size:24px;margin-top:32px}
-.article p,.article li{font-size:16px;margin-top:12px}
+.article h3{font-size:24px;margin-top:24px}
+.article p,.article li{font-size:16px;margin-top:8px}
+.article li{margin-top:4px}
 .article ul{padding-left:20px;margin:12px 0 0}
 .article .au{margin-top:32px;padding-top:16px;border-top:2px dashed var(--line);font-weight:700;color:var(--ink)}
 
@@ -552,7 +553,9 @@ footer::before{content:'';position:absolute;left:0;right:0;top:-31px;height:32px
   .cmds{grid-template-columns:repeat(2,1fr)}
   .game{padding:20px}
   .adapt-steps{grid-template-columns:1fr;gap:28px}
-  .contact-l,.contact-r,.article{padding:32px 24px}
+  .contact-l,.contact-r{padding:32px 24px}
+  .article{padding:16px 4px}
+  .article-in{padding:16px 16px 16px 20px}
   .f2{grid-template-columns:1fr}
   .street{padding:56px 12px 0}
   .road,.grass{margin:0 -12px}
@@ -575,7 +578,6 @@ footer::before{content:'';position:absolute;left:0;right:0;top:-31px;height:32px
   .post h3{font-size:20px}
   .h2{font-size:28px}
   .polas .pola{width:112px}
-  .hphotos img:nth-child(2){transform:none}
 }
 @media (max-width:400px){
   .polas .pola{width:96px}
@@ -1360,7 +1362,7 @@ footer::before{content:'';position:absolute;left:0;right:0;top:-31px;height:32px
 </dialog>
 
 <!-- articles -->
-<dialog id="a-skola" aria-labelledby="a-skola-h"><div class="article-wrap"><button class="x-btn" data-close aria-label="Zatvori">×</button><div class="article">
+<dialog id="a-skola" aria-labelledby="a-skola-h"><div class="article-wrap"><button class="x-btn" data-close aria-label="Zatvori">×</button><div class="article"><div class="article-in">
   <span class="eyebrow">Pripremni program</span>
   <h2 id="a-skola-h" style="margin-top:12px">Polazak u školu: šta je neophodno da znate</h2>
   <p>Polazak u prvi razred je nova etapa i za dete i za roditelje. U pripremnom programu dete se priprema za testiranje koje obavlja pedagog ili psiholog škole.</p>
@@ -1381,9 +1383,9 @@ footer::before{content:'';position:absolute;left:0;right:0;top:-31px;height:32px
   <p>Par nedelja pre testiranja objasnite detetu da je to običan razgovor i da se niko neće ljutiti ako ne zna neki odgovor. Budite opušteni, a posle razgovora ga nagradite za hrabrost.</p>
   <p>Leti svakodnevno pričajte o školi i uključite dete u izbor ranca, pernice i sveski. Obiđite školu na danu otvorenih vrata. Školom nikada ne pretite.</p>
   <p class="au">Natalija Cecelja, master defektolog – specijalni pedagog</p>
-</div></div></dialog>
+</div></div></div></dialog>
 
-<dialog id="a-govor" aria-labelledby="a-govor-h"><div class="article-wrap"><button class="x-btn" data-close aria-label="Zatvori">×</button><div class="article">
+<dialog id="a-govor" aria-labelledby="a-govor-h"><div class="article-wrap"><button class="x-btn" data-close aria-label="Zatvori">×</button><div class="article"><div class="article-in">
   <span class="eyebrow">Govor i jezik</span>
   <h2 id="a-govor-h" style="margin-top:12px">Kako da se govor deteta pravilno razvija</h2>
   <p>Najvažnije što roditelj može da uradi za razvoj govora jeste da razgovara sa detetom i da mu čita. Dete uči jezik dok vas sluša, dok sluša muziku, pa i razgovor drugih.</p>
@@ -1401,9 +1403,9 @@ footer::before{content:'';position:absolute;left:0;right:0;top:-31px;height:32px
   </ul>
   <p>I ne zaboravite: uvek se posavetujte sa logopedom.</p>
   <p class="au">Dragana Bulajić, dipl. defektolog – logoped</p>
-</div></div></dialog>
+</div></div></div></dialog>
 
-<dialog id="a-defekt" aria-labelledby="a-defekt-h"><div class="article-wrap"><button class="x-btn" data-close aria-label="Zatvori">×</button><div class="article">
+<dialog id="a-defekt" aria-labelledby="a-defekt-h"><div class="article-wrap"><button class="x-btn" data-close aria-label="Zatvori">×</button><div class="article"><div class="article-in">
   <span class="eyebrow">Razvoj</span>
   <h2 id="a-defekt-h" style="margin-top:12px">Uloga defektologa u predškolskoj ustanovi</h2>
   <p>Defektolog – specijalni pedagog u vrtiću savetuje, sprovodi prevenciju i prepoznaje decu sa smetnjama u razvoju, a zatim počinje tretman.</p>
@@ -1419,7 +1421,7 @@ footer::before{content:'';position:absolute;left:0;right:0;top:-31px;height:32px
   <h3>Rad sa roditeljima</h3>
   <p>Defektolog pomaže roditeljima da prepoznaju razvojne potrebe i teškoće deteta. Kada je potrebno, upućuje ih na obrazovnu, zdravstvenu ili socijalnu ustanovu.</p>
   <p class="au">Kuća Mašte, Pišemo za vas</p>
-</div></div></dialog>
+</div></div></div></dialog>
 
 <script>
 document.documentElement.classList.add('js');
@@ -1563,7 +1565,7 @@ document.documentElement.classList.add('js');
     d.querySelectorAll('[data-close]').forEach(function(x){ x.addEventListener('click', function(){ d.close(); }); });
   });
   document.querySelectorAll('[data-article]').forEach(function(b){
-    b.addEventListener('click', function(){ var d = document.getElementById(b.dataset.article); d.showModal(); d.querySelector('.article').scrollTop = 0; });
+    b.addEventListener('click', function(){ var d = document.getElementById(b.dataset.article); d.showModal(); d.querySelector('.article-in').scrollTop = 0; });
   });
 
   // lightbox
